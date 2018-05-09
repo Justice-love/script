@@ -1,13 +1,15 @@
 import os
 import sys
 
+if len(sys.argv) < 2:
+	print "args error:", sys.argv
+	sys.exit(1)
+
 fileName = sys.argv[1]
 path = '/Users/xuyi/Desktop/'
 fileType = ('jpg', 'JPG', 'jpeg', 'mp4')
 delimiter = '.'
 
-if len(sys.argv) < 2:
-    print "args error:", sys.argv
 
 def findFile():
     filterFiles = filter(lambda name: name.endswith(fileType), os.listdir(path))
