@@ -7,7 +7,7 @@ if len(sys.argv) < 2:
 
 fileName = sys.argv[1]
 path = '/Users/xuyi/Desktop/'
-fileType = ('jpg', 'JPG', 'jpeg', 'mp4')
+fileType = ('jpg', 'JPG', 'jpeg', 'mp4', 'MOV')
 delimiter = '.'
 
 
