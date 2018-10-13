@@ -9,6 +9,7 @@ p2 = re.compile(r'((\(+\d+)|(\d+~\d+))')
 p3 = re.compile(u'((\s+)|(\(+\d+)|(\d+~\d+))')
 p4 = re.compile(r'(C+)')
 p5 = re.compile(r'\s+[A-E]{2,4}\s+')
+p6 = re.compile(r'(\(\s+[A-E]\s+\))')
 
 def isBegin(str):
     """
@@ -38,7 +39,7 @@ def isSpace(str):
         return True
 
 def isMuti(str):
-    if p5.search(str):
+    if p5.search(str) and not p6.search(str):
         return True
     else:
         return False
@@ -75,7 +76,15 @@ for q in question:
         muti.append(q)
     else:
         choose.append(q)
-
+order = 0
+def list(s) :
+    global order
+    order += 1
+    orderStr = str(order) + '.'
+    return re.sub(u'(^\d+\.+)', orderStr, s)
+choose = map(list, choose)
+order = 0
+muti = map(list, muti)
 
 wpath = unicode('/Users/xuyi/Desktop/选择.txt', 'utf-8')
 w = open(wpath, "w")
